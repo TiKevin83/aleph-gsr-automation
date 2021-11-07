@@ -13,6 +13,7 @@ export default function Home() {
       }
     }
   });
+  verificationImages.sort();
 
   return (
     <div className="page">
