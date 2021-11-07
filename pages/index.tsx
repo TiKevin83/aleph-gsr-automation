@@ -3,7 +3,6 @@ import React from 'react'
 import { GoMarkGithub } from 'https://esm.sh/react-icons/go'
 
 export default function Home() {
-  const version = useDeno(() => Deno.version.deno);
   const verificationImages: string[] = [];
 
   useDeno(() => {
