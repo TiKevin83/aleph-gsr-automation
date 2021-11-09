@@ -1,6 +1,6 @@
 import { useDeno } from 'aleph/react'
 import React from 'react'
-import { GoMarkGithub } from 'https://esm.sh/react-icons/go'
+import { GoMarkGithub } from 'react-icons/go'
 
 export default function Home() {
   const verificationImages: string[] = [];
