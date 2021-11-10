@@ -1,4 +1,4 @@
-import type { Config } from 'https://deno.land/x/aleph/types.d.ts'
+import type { Config } from 'aleph/types'
 
 export default <Config>{
   basePath: '/aleph-gsr-automation',
