@@ -3,16 +3,14 @@ import React from 'react'
 import { GoMarkGithub } from 'react-icons/go'
 
 export default function Home() {
-  const verificationImages: string[] = [];
-
-  useDeno(() => {
-    for (const dirEntry of Deno.readDirSync('public/images')) {
-      if (dirEntry.isFile) {
-        verificationImages.push(dirEntry.name);
-      }
-    }
+  const version = useDeno(() => {
+    return Deno.version
+  })
+  const verificationImages: string[] = useDeno(() => {
+    return Array.from(Deno.readDirSync('public/images')).map(dirEntry => {
+      return dirEntry.name
+    }).sort();
   });
-  verificationImages.sort();
 
   return (
     <div className="page">
@@ -70,7 +68,6 @@ export default function Home() {
           Oracle of Ages and Seasons are both passing, but sadly the timing for the image dump doesn't line up well for Seasons and the passing screen is blank white.
           Of particular note among the passes are Pokemon Gold and Crystal, which require an emulator to have an accurate RTC implementation with tunable Cart RTC clock offsets to match real cartridges (BizHawk's bk2 stores the cart offset for use here).
         </p>
-
         <div className="grid">
           {
             verificationImages.map((image, i) => (
@@ -86,6 +83,7 @@ export default function Home() {
             ))
           }
         </div>
+        <p>Powered by Deno v{version.deno}</p>
       </main>
     </div>
   )
